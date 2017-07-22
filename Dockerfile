@@ -24,10 +24,7 @@ RUN rm -rf install-tl*
 
 #Export useful paths
 ENV PATH /opt/texbin:$PATH
-ENV PATH /usr/local/texlive/2016/bin/x86_64-linux:$PATH
-
-# Update all texlive packages
-RUN tlmgr update --self --all
+ENV PATH /usr/local/texlive/2017/bin/x86_64-linux:$PATH
 
 # Test Latex
 RUN wget ftp://www.ctan.org/tex-archive/macros/latex/base/small2e.tex 
