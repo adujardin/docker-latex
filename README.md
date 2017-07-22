@@ -15,7 +15,7 @@ Includes the following packages and utilities:
 
 * Node.js 6.x
 * Pandoc (latest release on GitHub)
-* TexLive 2016 full automatically installed from the TexLive repository
+* TexLive 2017 full automatically installed from the TexLive repository
 * Zip 
 * Pandoc extensions:
   * pandoc-fignos
@@ -64,4 +64,3 @@ box: fermiumlabs/latex-docker:latest
 <a href="https://twitter.com/intent/user?screen_name=fermiumlabs">
     <img src="https://img.shields.io/twitter/follow/fermiumlabs.svg?style=social&label=Follow" alt="Follow Fermium LABS on Twitter" align="right" />
 </a>
-
