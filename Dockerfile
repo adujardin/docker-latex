@@ -45,7 +45,7 @@ RUN wget `curl https://api.github.com/repos/jgm/pandoc/releases/latest | jq -r '
 RUN dpkg -i pandoc.deb && rm pandoc.deb
 
 # Popular documentation generator
-RUN apt-get -qq -y install doxygen mkdocs
+RUN apt-get -qq -y install doxygen mkdocs graphviz
 
 WORKDIR /data
 VOLUME ["/data"]
