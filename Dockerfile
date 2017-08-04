@@ -18,7 +18,7 @@ RUN ln -s --force /usr/bin/nodejs /usr/bin/node
 # Install latest TexLive
 RUN wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
 RUN tar -zxvf install-tl-unx.tar.gz
-ADD texlive.profile .
+COPY texlive.profile .
 RUN install-*/install-tl --profile=texlive.profile
 RUN rm -rf install-tl*
 
@@ -43,6 +43,9 @@ RUN echo "npm version $(npm -v) running"
 # Download the latest version of pandoc and install it
 RUN wget `curl https://api.github.com/repos/jgm/pandoc/releases/latest | jq -r '.assets[] | .browser_download_url | select(endswith("deb"))'` -O pandoc.deb
 RUN dpkg -i pandoc.deb && rm pandoc.deb
+
+# Popular documentation generator
+RUN apt-get -qq -y install doxygen mkdocs
 
 WORKDIR /data
 VOLUME ["/data"]
