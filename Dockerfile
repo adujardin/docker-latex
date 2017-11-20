@@ -15,7 +15,7 @@ RUN apt-get -qq -y install curl wget npm build-essential zip python-pip jq git l
 RUN curl -sL https://deb.nodesource.com/setup_$node_ver.x -o nodesource_setup.sh && chmod +x nodesource_setup.sh
 RUN ./nodesource_setup.sh
 RUN apt-get -qq -y install nodejs
-RUN ln -s --force /usr/bin/nodejs /usr/bin/node
+#RUN ln -s --force /usr/bin/nodejs /usr/bin/node
 
 # Install latest TexLive
 RUN wget http://mirror.ctan.org/systems/texlive/tlnet/install-tl-unx.tar.gz
