@@ -51,8 +51,17 @@ make start   #start the container
 make stop    #stop the container
 make rm      #remove the container and free disk space
 ```
+## Options
 
-#Usage in Wercker CI
+Options can be specified through docker's arguments. 
+
+##### Node Version
+
+```bash
+docker build . -t fermiumlabs/latex-docker:node-7 --build-arg node_ver=7
+```
+
+## Usage in Wercker CI
 
 Simply add as a first line this statement:
 
