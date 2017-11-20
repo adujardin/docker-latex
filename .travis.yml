@@ -1,0 +1,11 @@
+sudo: required
+
+language: c
+ 
+services:
+  - docker
+
+script: 
+- travis_wait 60 make build
+- chmod +x dockercmd.sh
+- ./dockercmd.sh pdflatex examples/example.tex
