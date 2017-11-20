@@ -4,7 +4,7 @@
 
 # Latex docker container
 
-[![Docker Pulls](https://img.shields.io/docker/pulls/fermiumlabs/latex-docker.svg?maxAge=2592000)](https://hub.docker.com/r/fermiumlabs/latex-docker/) [![Docker Pulls](https://img.shields.io/docker/automated/fermiumlabs/latex-docker.svg?maxAge=2592000)](https://hub.docker.com/r/fermiumlabs/latex-docker/)  [![Docker Pulls](https://img.shields.io/docker/stars/fermiumlabs/latex-docker.svg?maxAge=2592000)](https://hub.docker.com/r/fermiumlabs/latex-docker/) [![](https://images.microbadger.com/badges/image/fermiumlabs/latex-docker.svg)](https://microbadger.com/images/fermiumlabs/latex-docker "Get your own image badge on microbadger.com") [![Analytics](https://ga-beacon.appspot.com/UA-69533556-3/latex-docker/readme/?flat)](https://github.com/igrigorik/ga-beacon)
+[![Docker Pulls](https://img.shields.io/docker/pulls/fermiumlabs/latex-docker.svg?maxAge=2592000)](https://hub.docker.com/r/fermiumlabs/latex-docker/) [![Docker Pulls](https://img.shields.io/docker/automated/fermiumlabs/latex-docker.svg?maxAge=2592000)](https://hub.docker.com/r/fermiumlabs/latex-docker/)  [![Docker Pulls](https://img.shields.io/docker/stars/fermiumlabs/latex-docker.svg?maxAge=2592000)](https://hub.docker.com/r/fermiumlabs/latex-docker/) [![](https://images.microbadger.com/badges/image/fermiumlabs/latex-docker.svg)](https://microbadger.com/images/fermiumlabs/latex-docker "Get your own image badge on microbadger.com")
 
 
 This container is intended to be used as a base image in CI builds of latex documentation. The image is **rebuilt every week** automatically with the latest LaTex updates.
@@ -13,7 +13,7 @@ This container is intended to be used as a base image in CI builds of latex docu
 
 Includes the following packages and utilities:
 
-* Node.js 6.x
+* Node.js
 * Pandoc (latest release on GitHub)
 * TexLive 2017 full automatically installed from the TexLive repository
 * Zip 
