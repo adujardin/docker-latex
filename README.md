@@ -16,12 +16,12 @@ Includes the following packages and utilities:
 * Node.js
 * Pandoc (latest release on GitHub)
 * TexLive 2017 full automatically installed from the TexLive repository
-* Zip 
+* Zip
 * Pandoc extensions:
   * pandoc-fignos
   * pandoc-eqnos
   * pandoc-tablenos
-
+* Microsoft R Open
 
 ## Usage
 
@@ -53,7 +53,7 @@ make rm      #remove the container and free disk space
 ```
 ## Options
 
-Options can be specified through docker's arguments. 
+Options can be specified through docker's arguments.
 
 ##### Node Version
 
