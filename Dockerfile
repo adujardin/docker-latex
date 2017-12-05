@@ -49,38 +49,8 @@ RUN dpkg -i pandoc.deb && rm pandoc.deb
 # Popular documentation generator
 RUN apt-get -qq -y install doxygen mkdocs graphviz
 
-#Install R
-ENV MRO_VERSION 3.4.2
-WORKDIR /home/docker
-
-# Donwload and install MRO & MKL
-RUN curl -LO -# https://mran.blob.core.windows.net/install/mro/$MRO_VERSION/microsoft-r-open-$MRO_VERSION.tar.gz \
-	&& tar -xzf microsoft-r-open-$MRO_VERSION.tar.gz
-WORKDIR /home/docker/microsoft-r-open
-RUN  ./install.sh -a -u
-
-# Clean up downloaded files
-WORKDIR /home/docker
-RUN rm microsoft-r-open-*.tar.gz \
-	&& rm -r microsoft-r-open
-COPY MKL_EULA.txt MKL_EULA.txt
-COPY MRO_EULA.txt MRO_EULA.txt
-RUN echo 'cat("\n", readLines("/home/docker/MKL_EULA.txt"), "\n", sep="\n")' >> /usr/lib64/microsoft-r/$MRO_VERSION_MAJOR.$MRO_VERSION_MINOR/lib64/R/etc/Rprofile.site \
-	&& echo 'cat("\n", readLines("/home/docker/MRO_EULA.txt"), "\n", sep="\n")' >> /usr/lib64/microsoft-r/$MRO_VERSION_MAJOR.$MRO_VERSION_MINOR/lib64/R/etc/Rprofile.site
-
-# Overwrite default behaviour to never save workspace, see https://mran.revolutionanalytics.com/documents/rro/reproducibility/doc-research/
-RUN echo 'utils::assignInNamespace("q", function(save = "no", status = 0, runLast = TRUE) { \
-     .Internal(quit(save, status, runLast)) }, "base") \
-utils::assignInNamespace("quit", function(save = "no", status = 0, runLast = TRUE) { \
-     .Internal(quit(save, status, runLast)) }, "base")' >> /usr/lib64/microsoft-r/$MRO_VERSION_MAJOR.$MRO_VERSION_MINOR/lib64/R/etc/Rprofile.site
-
-# Add demo script
-COPY demo.R demo.R
-
-ARG VCS_URL
-ARG VCS_REF
-ARG BUILD_DATE
-
+# Install R
+RUN apt-get -qq -y install r-base
 
 # Clean apt lists
 RUN rm -rf /var/lib/apt/lists/*
