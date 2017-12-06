@@ -9,8 +9,10 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # Install general dependencies
 RUN apt-get -qq -y update
-RUN apt-get -qq -y install curl wget npm build-essential zip python-pip jq git libfontconfig less libgomp1 libpango-1.0-0 libxt6 libsm6
-
+RUN apt-get -qq -y install curl wget npm build-essential zip python-pip jq git libfontconfig less libgomp1 libpango-1.0-0 libxt6 libsm6  software-properties-common  apt-transport-https
+RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
+RUN add-apt-repository 'deb [arch=amd64,i386] https://cran.rstudio.com/bin/linux/ubuntu xenial/'
+RUN apt-get -qq -y update
 # Install nodejs
 RUN curl -sL https://deb.nodesource.com/setup_$node_ver.x -o nodesource_setup.sh && chmod +x nodesource_setup.sh
 RUN ./nodesource_setup.sh
