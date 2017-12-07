@@ -8,6 +8,9 @@ VOLUMES = -v $PWD:/data
 pull:
 	docker pull $(NS)/latex-docker
 
+push:
+	docker push $(NS)/latex-docker
+
 build:
 	docker build -t $(NS)/$(REPO) .
 
