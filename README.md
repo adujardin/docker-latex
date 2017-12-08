@@ -7,22 +7,24 @@
 [![Docker Pulls](https://img.shields.io/docker/pulls/fermiumlabs/latex-docker.svg?maxAge=2592000)](https://hub.docker.com/r/fermiumlabs/latex-docker/) [![Docker Pulls](https://img.shields.io/docker/automated/fermiumlabs/latex-docker.svg?maxAge=2592000)](https://hub.docker.com/r/fermiumlabs/latex-docker/)  [![Docker Pulls](https://img.shields.io/docker/stars/fermiumlabs/latex-docker.svg?maxAge=2592000)](https://hub.docker.com/r/fermiumlabs/latex-docker/) [![](https://images.microbadger.com/badges/image/fermiumlabs/latex-docker.svg)](https://microbadger.com/images/fermiumlabs/latex-docker "Get your own image badge on microbadger.com")
 
 
-This container is intended to be used as a base image in CI builds of latex documentation. The image is **rebuilt every week** automatically with the latest LaTex updates.
+This container is intended to be used as a base image in CI builds for document authoring systems. The image is **rebuilt every week** automatically with the latest LaTex updates.
 
 ## Features
 
 Includes the following packages and utilities:
 
-* Node.js
-* Pandoc (latest release on GitHub)
+* [Node.js](https://nodejs.org/it/) (defaults to 6)
+  - [Yarn](https://yarnpkg.com/en/)
 * TexLive 2017 full automatically installed from the TexLive repository
-* Zip
-* Pandoc extensions:
-  * pandoc-fignos
-  * pandoc-eqnos
-  * pandoc-tablenos
-* Microsoft R Open
-
+* Zip, wget and similar unix tools
+* Pandoc (defaults to 1.17)
+  * [pandoc-fignos](https://github.com/tomduck/pandoc-fignos)
+  * [pandoc-eqnos](https://github.com/tomduck/pandoc-eqnos)
+  * [pandoc-tablenos](https://github.com/tomduck/pandoc-tablenos)
+* R
+  - [bookdown](https://bookdown.org/)
+  - [rmarkdown](http://rmarkdown.rstudio.com/)
+*
 ## Usage
 
 Pull image ([from Hub](https://hub.docker.com/r/fermiumlabs/latex-docker/)):
@@ -59,6 +61,12 @@ Options can be specified through docker's arguments.
 
 ```bash
 docker build . -t fermiumlabs/latex-docker:node-7 --build-arg node_ver=7
+```
+
+##### Pandoc Version
+
+```bash
+docker build . -t fermiumlabs/latex-docker:pandoc-1.17.2 --build-arg pandoc_ver=1.17.2
 ```
 
 ## Usage in Wercker CI
