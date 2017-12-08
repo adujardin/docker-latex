@@ -24,7 +24,8 @@ Includes the following packages and utilities:
 * R
   - [bookdown](https://bookdown.org/)
   - [rmarkdown](http://rmarkdown.rstudio.com/)
-*
+* [Kindlegen](https://www.amazon.com/gp/feature.html?docId=1000765211)
+* 
 ## Usage
 
 Pull image ([from Hub](https://hub.docker.com/r/fermiumlabs/latex-docker/)):

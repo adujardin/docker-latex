@@ -46,6 +46,7 @@ RUN apt-get -qq -y install fonts-roboto
 # Log what version of node we're running on
 RUN echo "node version $(node -v) running"
 RUN echo "npm version $(npm -v) running"
+RUN echo "yarn version $(yarn -v) running"
 
 # Download the latest version of pandoc and install it
 RUN wget https://github.com/jgm/pandoc/releases/download/$pandoc_ver/pandoc-$pandoc_ver-1-amd64.deb -O pandoc.deb
@@ -70,7 +71,13 @@ RUN wget ftp://www.ctan.org/tex-archive/macros/latex/base/small2e.tex
 RUN latex  small2e.tex
 RUN xelatex small2e.tex
 
-RUN  rm -rf /var/lib/apt/lists/*
+#Download and install kindlegen
+RUN wget http://kindlegen.s3.amazonaws.com/kindlegen_linux_2.6_i386_v2_9.tar.gz
+RUN tar xvfz kindlegen_linux_2.6_i386_v2_9.tar.gz
+RUN mv kindlegen /usr/local/bin/
+RUN chmod +x /usr/local/bin/kindlegen 
+
+RUN rm -rf /var/lib/apt/lists/*
 RUN rm -rf /root/*
 
 WORKDIR /data
