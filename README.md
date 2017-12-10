@@ -47,6 +47,7 @@ Make commands:
 
 ```bash
 make pull    #pull the docker container from the prebuilt public image
+make push    #push the image to Docker hub
 make build   #build the image from this GitHub repository. long process
 make shell   #allows you to interact with the container
 make run     #run the container and then destroys it
