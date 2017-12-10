@@ -24,7 +24,8 @@ Includes the following packages and utilities:
 * R
   - [bookdown](https://bookdown.org/)
   - [rmarkdown](http://rmarkdown.rstudio.com/)
-*
+
+
 ## Usage
 
 Pull image ([from Hub](https://hub.docker.com/r/fermiumlabs/latex-docker/)):
