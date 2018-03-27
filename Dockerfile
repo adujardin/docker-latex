@@ -4,7 +4,7 @@ MAINTAINER Fermium LABS srl <info@fermiumlabs.com>
 
 ######################################### CONFIG
 ARG node_ver=6
-ARG pandoc_ver=1.17.2
+ARG pandoc_ver=2.1.3
 
 #########################################
 ENV HOME /root
