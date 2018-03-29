@@ -17,7 +17,7 @@ Includes the following packages and utilities:
   - [Yarn](https://yarnpkg.com/en/)
 * TexLive 2017 full automatically installed from the TexLive repository
 * Zip, wget and similar unix tools
-* Pandoc (defaults to 1.17)
+* Pandoc (defaults to 2.1.3)
   * [pandoc-fignos](https://github.com/tomduck/pandoc-fignos)
   * [pandoc-eqnos](https://github.com/tomduck/pandoc-eqnos)
   * [pandoc-tablenos](https://github.com/tomduck/pandoc-tablenos)
@@ -68,7 +68,7 @@ docker build . -t fermiumlabs/latex-docker:node-7 --build-arg node_ver=7
 ##### Pandoc Version
 
 ```bash
-docker build . -t fermiumlabs/latex-docker:pandoc-1.17.2 --build-arg pandoc_ver=1.17.2
+docker build . -t fermiumlabs/latex-docker:pandoc-2.1.3 --build-arg pandoc_ver=2.1.3
 ```
 
 ## Usage in Wercker CI
