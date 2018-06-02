@@ -1,11 +1,5 @@
 FROM ubuntu:xenial
 
-MAINTAINER Fermium LABS srl <info@fermiumlabs.com>
-
-######################################### CONFIG
-ARG node_ver=6
-ARG pandoc_ver=2.1.3
-
 #########################################
 ENV HOME /root
 WORKDIR /root
@@ -14,42 +8,13 @@ ENV DEBIAN_FRONTEND noninteractive
 
 # Install general dependencies
 RUN apt-get -qq -y update 
-RUN apt-get -qq -y install curl wget build-essential zip python-pip jq git libfontconfig locales software-properties-common
-
-# Install nodejs
-RUN curl -sL https://deb.nodesource.com/setup_$node_ver.x -o nodesource_setup.sh && chmod +x nodesource_setup.sh
-RUN ./nodesource_setup.sh
-RUN apt-get -qq -y install nodejs 
-
-# Install yarn
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
-RUN apt-get update -yqq
-RUN apt-get install -yqq yarn
-
-# Install R
-RUN apt-key adv --keyserver keyserver.ubuntu.com --recv-keys E298A3A825C0D65DFD57CBB651716619E084DAB9
-RUN add-apt-repository 'deb [arch=amd64,i386] https://cran.rstudio.com/bin/linux/ubuntu xenial/'
-RUN apt-get -yqq update
-RUN apt-get install -yqq r-base
-# Install popular package bookdown and rmarkdown for document authoring
-RUN Rscript -e "install.packages('rmarkdown',repos='https://cran.rstudio.com');install.packages('bookdown',repos='https://cran.rstudio.com')"
+RUN apt-get -qq -y install curl wget make zip jq git libfontconfig locales software-properties-common
 
 # Install Roboto font, ghostscript, pandoc extensions
 RUN apt-get -qq -y install  ghostscript
-RUN pip install --upgrade pip
-RUN pip install pandoc-fignos pandoc-eqnos pandoc-tablenos
 
 # Install a few beautiful fonts
 RUN apt-get -qq -y install fonts-roboto
-
-# Log what version of node we're running on
-RUN echo "node version $(node -v) running"
-RUN echo "npm version $(npm -v) running"
-
-# Download the latest version of pandoc and install it
-RUN wget https://github.com/jgm/pandoc/releases/download/$pandoc_ver/pandoc-$pandoc_ver-1-amd64.deb -O pandoc.deb
-RUN dpkg -i pandoc.deb && rm pandoc.deb 
 
 # Popular documentation generator
 RUN apt-get -qq -y install doxygen mkdocs graphviz
