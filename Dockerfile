@@ -8,7 +8,7 @@ RUN apt-get -qq -y install curl ghostscript fonts-roboto wget make zip jq git li
 
 # install latex
 RUN apt-get install -qy --no-install-recommends \
-	texlive-latex-extra \
+	texlive-latex-extra texlive-lang-french \
 	texlive-fonts-recommended texlive-fonts-extra \
 	texlive-science
 
